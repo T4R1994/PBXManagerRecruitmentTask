@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
+using PBXManagerRecruitmentTask.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace PBXManagerRecruitmentTask.Services
 
 		public static void RegisterServices()
 		{
-			//_iocInstance.Register<MainPbxManagerViewModel>();
+			_iocInstance.Register<IAgentManager, AgentManager>();
+			_iocInstance.Register<IPbxProvider, PbxProvider>();
+			_iocInstance.Register<IPbxManager, PbxManager>();
 		}
 	}
 }

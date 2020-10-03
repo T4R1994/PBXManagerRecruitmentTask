@@ -1,5 +1,6 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Threading;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,6 +18,7 @@ namespace PBXManagerRecruitmentTask
 	{
 		protected override void OnStartup(StartupEventArgs e)
 		{
+			DispatcherHelper.Initialize();
 			InitalizeDependencies();
 		}
 

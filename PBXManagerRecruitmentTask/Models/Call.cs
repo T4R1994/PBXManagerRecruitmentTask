@@ -10,5 +10,14 @@ namespace PBXManagerRecruitmentTask.Models
 	{
 		public string Id { get; set; }
 		public int DurationInSec { get; set; }
+
+		public static Call NewCall()
+		{
+			return new Call
+			{
+				Id = Guid.NewGuid().ToString(),
+				DurationInSec = new Random().Next(1, 10)
+			};
+		}
 	}
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PBXManagerRecruitmentTask"
 		DataContext="{Binding Main, Source={StaticResource Locator}}"
         mc:Ignorable="d"
-        Title="MainPBXManagerWindow" MaxHeight="450" MinHeight="450" MaxWidth="800" MinWidth="800">
+        Title="MainPBXManagerWindow" MaxHeight="450" MinHeight="450" Width="800"  MinWidth="800">
 	<Grid Margin="10">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="251"/>
