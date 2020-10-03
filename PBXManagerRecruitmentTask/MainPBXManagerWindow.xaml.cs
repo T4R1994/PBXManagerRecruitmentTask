@@ -23,5 +23,15 @@ namespace PBXManagerRecruitmentTask
 		{
 			InitializeComponent();
 		}
+
+		private void ItemsControl_SizeChanged(object sender, SizeChangedEventArgs e)
+		{
+			// Scroll to bottom only when the scroll is on the bottom 
+			if(ConsoleScroller.VerticalOffset == ConsoleScroller.ScrollableHeight)
+			{
+				ConsoleScroller.ScrollToBottom();
+			}
+			
+		}
 	}
 }

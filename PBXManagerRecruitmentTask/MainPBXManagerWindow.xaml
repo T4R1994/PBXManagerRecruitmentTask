@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PBXManagerRecruitmentTask"
+		DataContext="{Binding Main, Source={StaticResource Locator}}"
         mc:Ignorable="d"
         Title="MainPBXManagerWindow" MaxHeight="450" MinHeight="450" MaxWidth="800" MinWidth="800">
 	<Grid Margin="10">
@@ -25,31 +26,37 @@
 					<RowDefinition Height="40"/>
 					<RowDefinition Height="40"/>
 				</Grid.RowDefinitions>
-				<ListBox Grid.Row="0">
-					<ListBoxItem>Test</ListBoxItem>
+				<ListBox Grid.Row="0" ItemsSource="{Binding Agents}" Name="AgentsList">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Path=Name}"></TextBlock>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
 				</ListBox>
 				<WrapPanel Grid.Row="1" Margin="5" >
 					<Label Content="Name" Height="25" VerticalAlignment="Center" Width="70"></Label>
-					<TextBox Width="120" Padding="3" VerticalAlignment="Center"></TextBox>
+					<TextBox Width="120" Padding="3" VerticalAlignment="Center" Text="{Binding NewAgentName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 				</WrapPanel>
 				<Grid Grid.Row="2">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="*" />
 						<ColumnDefinition Width="*" />
 					</Grid.ColumnDefinitions>
-					<Button Grid.Column="0" Margin="5">Remove</Button>
-					<Button Grid.Column="1" Margin="5">Add</Button>
+					<Button Grid.Column="0" Margin="5" Command="{Binding RemoveAgentCommand}" CommandParameter="{Binding ElementName=AgentsList, Path=SelectedItem}">
+						Remove
+					</Button>
+					<Button Grid.Column="1" Margin="5" Command="{Binding AddAgentCommand}">Add</Button>
 				</Grid>
 			</Grid>
 		</GroupBox>
-		<GroupBox Header="Console" Grid.Column="1">
+		<GroupBox Header="Console" Grid.Column="1" Padding="5">
 			<Grid>
-				<ScrollViewer>
+				<ScrollViewer Name="ConsoleScroller">
 					<StackPanel>
-						<ItemsControl>
+						<ItemsControl ItemsSource="{Binding ConsoleItems, Mode=OneWay}" SizeChanged="ItemsControl_SizeChanged">
 							<ItemsControl.ItemTemplate>
 								<DataTemplate>
-									<TextBlock Text="Test"></TextBlock>
+									<TextBlock Text="{Binding}" TextWrapping="Wrap"></TextBlock>
 								</DataTemplate>
 							</ItemsControl.ItemTemplate>
 						</ItemsControl>
@@ -58,7 +65,7 @@
 			</Grid>
 		</GroupBox>
 		<WrapPanel VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1">
-			<Button Height="30" Padding="10, 0">Make call</Button>
+			<Button Height="30" Padding="10, 0" Command="{Binding MakeCallCommand}">Make call</Button>
 		</WrapPanel>
 	</Grid>
 </Window>

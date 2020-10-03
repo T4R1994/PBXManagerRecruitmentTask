@@ -79,6 +79,7 @@
     <Compile Include="Services\ServicesDependency.cs" />
     <Compile Include="ViewModels\MainPbxManagerViewModel.cs" />
     <Compile Include="ViewModels\ViewModelDependency.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainPBXManagerWindow.xaml.cs">
