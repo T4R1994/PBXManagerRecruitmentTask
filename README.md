@@ -1,6 +1,6 @@
 # PBXManagerRecruitmentTask - zadanie rekrutacyjne
 
-
+![](pbxManager.gif)
 
 Treść zadania:
 
