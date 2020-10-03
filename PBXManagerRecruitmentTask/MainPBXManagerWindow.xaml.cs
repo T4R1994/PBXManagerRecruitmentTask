@@ -33,5 +33,10 @@ namespace PBXManagerRecruitmentTask
 			}
 			
 		}
+
+		private void GridTitleBar_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			DragMove();
+		}
 	}
 }

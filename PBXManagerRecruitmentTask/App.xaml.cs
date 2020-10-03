@@ -1,6 +1,7 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Threading;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -20,6 +21,7 @@ namespace PBXManagerRecruitmentTask
 		{
 			DispatcherHelper.Initialize();
 			InitalizeDependencies();
+			SetDarkMode();
 		}
 
 		private void InitalizeDependencies() 
@@ -28,6 +30,15 @@ namespace PBXManagerRecruitmentTask
 
 			ViewModels.ViewModelDependency.RegisterViewModels();
 			Services.ServicesDependency.RegisterServices();
+
+		}
+
+		private void SetDarkMode()
+		{
+			var pallete = new PaletteHelper();
+			var theme = pallete.GetTheme();
+			theme.SetBaseTheme(new MaterialDesignDarkTheme());
+			pallete.SetTheme(theme);
 		}
 	}
 }

@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PBXManagerRecruitmentTask.ViewModels
 {
@@ -29,6 +30,7 @@ namespace PBXManagerRecruitmentTask.ViewModels
 		public RelayCommand AddAgentCommand { get; private set; }
 		public RelayCommand<Agent> RemoveAgentCommand { get; private set; }
 		public RelayCommand MakeCallCommand { get; private set; }
+		public RelayCommand CloseAppCommand { get; private set; }
 
 		public ObservableCollection<Agent> Agents { get; } = new ObservableCollection<Agent>();
 		public ObservableCollection<string> ConsoleItems { get; } = new ObservableCollection<string>();
@@ -49,6 +51,7 @@ namespace PBXManagerRecruitmentTask.ViewModels
 			AddAgentCommand = new RelayCommand(AddAgent, CanAddAgent);
 			RemoveAgentCommand = new RelayCommand<Agent>(RemoveAgent);
 			MakeCallCommand = new RelayCommand(MakeCall);
+			CloseAppCommand = new RelayCommand(CloseApplication);
 
 			InitializeAgentList();
 		}
@@ -122,6 +125,11 @@ namespace PBXManagerRecruitmentTask.ViewModels
 			{
 				Agents.Add(agent);
 			}
+		}
+
+		private void CloseApplication()
+		{
+			Application.Current.Shutdown();
 		}
 	}
 }
