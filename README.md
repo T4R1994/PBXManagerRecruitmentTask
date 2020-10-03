@@ -4,10 +4,15 @@ Projekt małej centralki telefonicznej opartej na technologi WPF (.Net Framework
 
 Zostały wykorzystane poniższe zewnetrzne zależności:
  - MVVM Light (https://github.com/lbugnion/mvvmlight)
+ - Material Desing Themes (branch: new-ui)
 
-Podgląd mojej implementacji:
+Podgląd mojej implementacji (master):
 
 ![](pbxManager.gif)
+
+Na branchu: 'new-ui' jest wersja z innym layoutem:
+
+![](dark-view.png)
 
 Treść zadania:
 
