@@ -1,5 +1,11 @@
 # PBXManagerRecruitmentTask - zadanie rekrutacyjne
 
+Projekt małej centralki telefonicznej opartej na technologi WPF (.Net Framework 4.7). 
+Zostały wykorzystane poniższe zewnetrzne zależności:
+ - MVVM Light (https://github.com/lbugnion/mvvmlight)
+
+Podgląd mojej implementacji:
+
 ![](pbxManager.gif)
 
 Treść zadania:
